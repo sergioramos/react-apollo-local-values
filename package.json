@@ -1,0 +1,55 @@
+{
+  "name": "react-apollo-local-values",
+  "version": "1.1.2",
+  "license": "BSD-3-Clause",
+  "description": "easily get and set values from a apollo local state",
+  "keywords": [
+    "apollo",
+    "react",
+    "apollo-link-state",
+    "set",
+    "get"
+  ],
+  "repository": "github:ramitos/react-apollo-local-values",
+  "main": "dist/react-apollo-local-values.umd.js",
+  "jsnext:main": "dist/react-apollo-local-values.es.js",
+  "module": "dist/react-apollo-local-values.es.js",
+  "entry": "src/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint": "eslint . --fix --ext .js --ext .md",
+    "fmt": "prettier --write --single-quote *.md src/*.js *.json",
+    "build": "NODE_ENV=development bup",
+    "prepublish": "NODE_ENV=production bup"
+  },
+  "dependencies": {
+    "camel-case": "^3.0.0",
+    "force-array": "^3.1.0",
+    "graphql-tag": "^2.7.3",
+    "lodash.get": "^4.4.2",
+    "pascal-case": "^2.0.1",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "babel-preset-joyent-portal": "^6.0.3",
+    "babel-runtime": "^6.26.0",
+    "bup": "^4.1.6",
+    "eslint": "^4.17.0",
+    "eslint-config-joyent-portal": "^3.3.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-config-xo-space": "^0.17.0",
+    "eslint-plugin-flowtype": "^2.43.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-markdown": "^1.0.0-beta.6",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.6.1",
+    "prettier": "^1.10.2",
+    "react": "^16.2.0",
+    "rnd-id": "^2.0.2"
+  }
+}
