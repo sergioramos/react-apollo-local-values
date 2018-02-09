@@ -22,6 +22,32 @@ yarn add --dev react-apollo-local-values
 
 ## Usage
 
+```js
+import React from 'react';
+import { graphql, compose } from 'react-apollo';
+import Values from 'react-apollo-local-values';
+
+const { set, get, resolve } = Values('my-namespace');
+
+const Hello = ({ name, onNameChange }) => (
+  <form>
+    <p>{name}</p>
+    <input type="text" onChange={ev => onAgeChange(ev.target.value)} />
+  </form>
+);
+
+export default compose(
+  graphql(set('name'), {
+    props: ({ mutate }) => ({
+      onNameChange: (name = '') => mutate({ variables: { name } })
+    })
+  }),
+  graphql(get('name'), {
+    props: resolve
+  })
+)(Hello);
+```
+
 ## License
 
 BSD-3-Clause
