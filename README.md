@@ -37,7 +37,7 @@ const { set, get, resolve } = Values('my-namespace');
 const Hello = ({ name, onNameChange }) => (
   <form>
     <p>{name}</p>
-    <input type="text" onChange={ev => onAgeChange(ev.target.value)} />
+    <input type="text" onChange={ev => onNameChange(ev.target.value)} />
   </form>
 );
 
