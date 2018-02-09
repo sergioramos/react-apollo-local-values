@@ -17,10 +17,15 @@
 ## Install
 
 ```
-yarn add --dev react-apollo-local-values
+yarn add react-apollo-local-values
+```
+```
+npm install react-apollo-local-values
 ```
 
 ## Usage
+
+*to combine with [apollo-link-state](https://github.com/apollographql/apollo-link-state)*
 
 ```js
 import React from 'react';
