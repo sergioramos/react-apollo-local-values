@@ -22,7 +22,8 @@
     "lint": "eslint . --fix --ext .js --ext .md",
     "fmt": "prettier --write --single-quote *.md src/*.js *.json",
     "build": "NODE_ENV=development bup",
-    "prepublish": "NODE_ENV=production bup"
+    "prepublish": "NODE_ENV=production bup",
+    "watch": "onchange 'app/**/*.js' 'src/*.js' -- npm run build"
   },
   "dependencies": {
     "camel-case": "^3.0.0",
@@ -48,6 +49,7 @@
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.6.1",
+    "onchange": "^3.3.0",
     "prettier": "^1.10.2",
     "react": "^16.2.0",
     "rnd-id": "^2.0.2"

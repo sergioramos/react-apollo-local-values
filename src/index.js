@@ -27,16 +27,21 @@ export const mutation = () => ({
 export default (namespace = ROOT) => {
   const _namespace = camelCase(namespace);
 
-  const get = attrs => gql`
-    ${namespace} @client {
-      id
-      ${forceArray(attrs)
-        .map(attr => camelCase(attr))
-        .join('\n')};
-    }
-  `;
+  const get = attrs => {
+    const retu = forceArray(attrs).map(attr => `
+      ${namespace} @client {
+        id
+        ${camelCase(attr)}
+      }
+  `)
 
-  // eslint-disable-next-line new-cap
+    return gql`
+      query ${namespace} {
+        ${retu}
+      }
+    `
+  };
+
   const resolve = ({ data }) => Get(data, `${_namespace}`, {});
 
   const set = (attr, type = 'string') => {
