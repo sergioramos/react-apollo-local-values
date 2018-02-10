@@ -5,11 +5,13 @@ import Values from 'react-apollo-local-values';
 // eslint-disable-next-line new-cap
 const { set, get, resolve } = Values('hello');
 
-const Hello = ({ age, name, onAgeChange }) => (
-  <form>
-    <p>{name}</p>
-    <p>{age}</p>
-    <input type="number" onChange={ev => onAgeChange(ev.target.value)} />
+const Hello = ({ age, onAgeChange }) => (
+  <form class="pa4 black-80">
+    <div class="measure">
+      <label htmlFor="age" class="f6 b db mb2">Age <span class="normal black-60">(optional)</span></label>
+      <input id="age" onChange={ev => onAgeChange(ev.target.value)} class="input-reset ba b--black-20 pa2 mb2 db w-100" type="number" aria-describedby="age-desc" />
+      {age ? <small id="age-desc" class="f6 black-60 db mb2">Your age is: {age}</small> : null }
+    </div>
   </form>
 );
 
@@ -19,7 +21,7 @@ export default compose(
       onAgeChange: (age = '') => mutate({ variables: { age } })
     })
   }),
-  graphql(get(['age', 'name']), {
+  graphql(get('age'), {
     props: resolve
   })
 )(Hello);

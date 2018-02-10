@@ -1,6 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import ReactDOM from 'react-dom';
+import 'tachyons';
 
 import Hello from './hello';
 import Age from './age';
@@ -10,10 +11,10 @@ window.__APOLLO_CLIENT__ = client;
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Fragment>
+    <div className="helvetica pa5">
       <Hello />
       <Age />
-    </Fragment>
+    </div>
   </ApolloProvider>,
   document.getElementById('root')
 );

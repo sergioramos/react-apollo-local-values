@@ -13,7 +13,8 @@
     "react": "^16.2.0",
     "react-apollo": "^2.0.4",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "tachyons": "^4.9.1"
   },
   "devDependencies": {
     "graphql": "^0.13.0"
