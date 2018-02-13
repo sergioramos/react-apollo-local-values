@@ -30,8 +30,9 @@
     "force-array": "^3.1.0",
     "graphql-tag": "^2.7.3",
     "lodash.get": "^4.4.2",
+    "lodash.keys": "^4.2.0",
     "pascal-case": "^2.0.1",
-    "uuid": "^3.2.1"
+    "rnd-id": "^2.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
@@ -51,7 +52,6 @@
     "eslint-plugin-react": "^7.6.1",
     "onchange": "^3.3.0",
     "prettier": "^1.10.2",
-    "react": "^16.2.0",
-    "rnd-id": "^2.0.2"
+    "react": "^16.2.0"
   }
 }

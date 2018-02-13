@@ -1,22 +1,28 @@
-import uuid from 'uuid/v4';
+import rndId from 'rnd-id';
 import camelCase from 'camel-case';
 import pascalCase from 'pascal-case';
 import forceArray from 'force-array';
 import Get from 'lodash.get';
+import keys from 'lodash.keys';
 import gql from 'graphql-tag';
 
 const ROOT = camelCase('--react-apollo-local-values');
-const ID = uuid();
+const IDS = {};
 
 export const mutation = () => ({
   setLocalValue: (_, { namespace, ...values }, { cache }) => {
     const typename = pascalCase(namespace);
+    const id = IDS[typename] || `${typename}:${rndId()}`;
+
+    if (!IDS[typename]) {
+      IDS[typename] = id;
+    }
 
     cache.writeData({
       data: {
         [namespace]: {
           ...values,
-          id: `${typename}:${ID}`,
+          id,
           __typename: typename
         }
       }
@@ -28,29 +34,37 @@ export default (namespace = ROOT) => {
   const _namespace = camelCase(namespace);
 
   const get = attrs => {
-    const retu = forceArray(attrs).map(attr => `
-      ${namespace} @client {
-        id
-        ${camelCase(attr)}
-      }
-  `)
+    const args = forceArray(attrs)
+      .map(attr => camelCase(attr))
+      .join('\n');
 
     return gql`
-      query ${namespace} {
-        ${retu}
+      query {
+        ${namespace} @client {
+          id
+          ${args}
+        }
       }
-    `
+    `;
   };
 
   const resolve = ({ data }) => Get(data, `${_namespace}`, {});
 
-  const set = (attr, type = 'string') => {
-    const _attr = camelCase(attr);
-    const _type = pascalCase(type);
+  const set = (attrs = {}) => {
+    const _attrs = keys(attrs).map(name => ({
+      name: camelCase(name),
+      type: pascalCase(attrs[name])
+    }));
+
+    const params = _attrs
+      .map(({ name, type }) => `$${name}: ${type}`)
+      .join(', ');
+
+    const values = _attrs.map(({ name }) => `${name}: $${name}`).join(', ');
 
     return gql`
-      mutation setLocalValue($namespace: String, $${_attr}: ${_type}!) {
-        setLocalValue(namespace: ${_namespace}, ${_attr}: $${_attr}) @client
+      mutation setLocalValue(${params}) {
+        setLocalValue(namespace: "${_namespace}", ${values}) @client
       }
     `;
   };
