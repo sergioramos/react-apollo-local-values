@@ -34,17 +34,20 @@ import Values from 'react-apollo-local-values';
 
 const { set, get, resolve } = Values('my-namespace');
 
-const Hello = ({ name, onNameChange }) => (
+const Hello = ({ name, age, onNameChange, onAgeChange }) => (
   <form>
     <p>{name}</p>
+    <p>{age}</p>
     <input type="text" onChange={ev => onNameChange(ev.target.value)} />
+    <input type="number" onChange={ev => onAgeChange(ev.target.value)} />
   </form>
 );
 
 export default compose(
-  graphql(set('name'), {
+  graphql(set({ name: 'String', age: 'Number' }), {
     props: ({ mutate }) => ({
-      onNameChange: (name = '') => mutate({ variables: { name } })
+      onNameChange: (name = '') => mutate({ variables: { name } }),
+      onAgeChange: (age = 0) => mutate({ variables: { age } })
     })
   }),
   graphql(get('name'), {
