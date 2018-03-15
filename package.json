@@ -15,9 +15,15 @@
     "fmt": "prettier --config .prettierrc --write '**/*'",
     "build": "NODE_ENV=development bup",
     "prepublish": "NODE_ENV=production bup",
-    "watch": "onchange 'app/**/*.js' 'src/*.js' -- npm run build"
+    "watch": "onchange 'app/**/*.js' 'src/*.js' -- npm run build",
+    "commitmsg": "commitlint -e",
+    "precommit": "pretty-quick --staged",
+    "commit": "commit"
   },
   "dependencies": {
+    "@commitlint/cli": "^6.1.3",
+    "@commitlint/config-angular": "^6.1.3",
+    "@commitlint/prompt-cli": "^6.1.3",
     "camel-case": "^3.0.0",
     "force-array": "^3.1.0",
     "graphql-tag": "^2.8.0",
@@ -42,8 +48,11 @@
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
+    "graphql": "^0.13.1",
+    "husky": "^0.14.3",
     "onchange": "^3.3.0",
-    "prettier": "^1.11.1",
+    "prettier": "1.11.1",
+    "pretty-quick": "^1.4.1",
     "react": "^16.2.0"
   }
 }

@@ -5,11 +5,11 @@
     "build": "react-scripts build"
   },
   "dependencies": {
-    "apollo-cache-inmemory": "^1.1.7",
-    "apollo-client": "^2.2.3",
-    "apollo-link": "^1.1.0",
-    "apollo-link-http": "^1.3.3",
-    "apollo-link-state": "^0.4.0",
+    "apollo-cache-inmemory": "^1.1.11",
+    "apollo-client": "^2.2.7",
+    "apollo-link": "^1.2.1",
+    "apollo-link-http": "^1.5.3",
+    "apollo-link-state": "^0.4.1",
     "react": "^16.2.0",
     "react-apollo": "^2.0.4",
     "react-apollo-local-values": "*",
@@ -18,6 +18,6 @@
     "tachyons": "^4.9.1"
   },
   "devDependencies": {
-    "graphql": "^0.13.0"
+    "graphql": "^0.13.1"
   }
 }

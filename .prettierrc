@@ -10,7 +10,15 @@
   "overrides": [
     {
       "files": [".prettierrc", ".eslintrc", ".babelrc", ".tern-project"],
-      "parser": "json"
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": ["package.json"],
+      "options": {
+        "printWidth": 120
+      }
     }
   ]
 }
