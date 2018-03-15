@@ -3,24 +3,16 @@
   "version": "1.0.1",
   "license": "BSD-3-Clause",
   "description": "easily get and set values from a apollo local state",
-  "keywords": [
-    "apollo",
-    "react",
-    "apollo-link-state",
-    "set",
-    "get"
-  ],
+  "keywords": ["apollo", "react", "apollo-link-state", "set", "get"],
   "repository": "github:ramitos/react-apollo-local-values",
   "main": "dist/react-apollo-local-values.umd.js",
   "jsnext:main": "dist/react-apollo-local-values.es.js",
   "module": "dist/react-apollo-local-values.es.js",
   "entry": "src/index.js",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "lint": "eslint . --fix --ext .js --ext .md",
-    "fmt": "prettier --write --single-quote *.md src/*.js *.json",
+    "fmt": "prettier --config .prettierrc --write '**/*'",
     "build": "NODE_ENV=development bup",
     "prepublish": "NODE_ENV=production bup",
     "watch": "onchange 'app/**/*.js' 'src/*.js' -- npm run build"
@@ -28,30 +20,30 @@
   "dependencies": {
     "camel-case": "^3.0.0",
     "force-array": "^3.1.0",
-    "graphql-tag": "^2.7.3",
+    "graphql-tag": "^2.8.0",
     "lodash.get": "^4.4.2",
     "lodash.keys": "^4.2.0",
     "pascal-case": "^2.0.1",
     "rnd-id": "^2.0.2"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
-    "babel-preset-joyent-portal": "^6.0.3",
+    "babel-eslint": "^8.2.2",
+    "babel-preset-joyent-portal": "^7.0.1",
     "babel-runtime": "^6.26.0",
     "bup": "^4.1.6",
-    "eslint": "^4.17.0",
+    "eslint": "^4.18.2",
     "eslint-config-joyent-portal": "^3.3.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-react-app": "^2.1.0",
-    "eslint-config-xo-space": "^0.17.0",
-    "eslint-plugin-flowtype": "^2.43.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-config-xo-space": "^0.18.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-react": "^7.7.0",
     "onchange": "^3.3.0",
-    "prettier": "^1.10.2",
+    "prettier": "^1.11.1",
     "react": "^16.2.0"
   }
 }

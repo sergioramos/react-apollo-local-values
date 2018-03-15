@@ -19,13 +19,14 @@
 ```
 yarn add react-apollo-local-values
 ```
+
 ```
 npm install react-apollo-local-values
 ```
 
 ## Usage
 
-*to combine with [apollo-link-state](https://github.com/apollographql/apollo-link-state)*
+_to combine with [apollo-link-state](https://github.com/apollographql/apollo-link-state)_
 
 ```js
 import React from 'react';
@@ -44,13 +45,19 @@ const Hello = ({ name, age, onNameChange, onAgeChange }) => (
 );
 
 export default compose(
-  graphql(set({ name: 'String', age: 'Number' }), {
-    props: ({ mutate }) => ({
-      onNameChange: (name = '') => mutate({ variables: { name } }),
-      onAgeChange: (age = 0) => mutate({ variables: { age } })
-    })
-  }),
-  graphql(get('name'), {
+  graphql(
+    set({
+      name: 'String',
+      age: 'Number'
+    }),
+    {
+      props: ({ mutate }) => ({
+        onNameChange: (name = '') => mutate({ variables: { name } }),
+        onAgeChange: (age = 0) => mutate({ variables: { age } })
+      })
+    }
+  ),
+  graphql(get('name', 'age'), {
     props: resolve
   })
 )(Hello);

@@ -1,0 +1,11 @@
+yarn.lock
+license
+.git/*
+.travis.yml
+.eslintignore
+.DS_Store
+.prettierignore
+.npmignore
+*.ico
+.gitignore
+!.prettierrc
